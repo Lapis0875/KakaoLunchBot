@@ -1,1 +1,1 @@
-'web: gunicorn kakaoskills:app'  
+'web: gunicorn yhkakaoskill:app'

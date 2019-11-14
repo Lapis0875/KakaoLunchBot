@@ -13,5 +13,6 @@ result = json.loads(urlopen(URL).read().decode('utf-8'))
 print(result, '\ntype = ', type(result))
 menus = result["menu"][0]["lunch"]
 print(menus, '\ntype = ', type(menus))
+print(str(menus))
 for menu in menus:
     print(menu)
