@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
+def yhkakaoskill():
     with open('kakao-skill.html', 'rt', encoding='utf-8') as f:
         content = f.read()
         f.close()
