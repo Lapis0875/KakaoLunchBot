@@ -1,6 +1,6 @@
 {
   "intent": {
-    "id": "aoadpgz0mym1pipxutxuanur",
+    "id": "rjc08h0v0c9ou4ufhfj1ycrl",
     "name": "블록 이름"
   },
   "userRequest": {
@@ -9,13 +9,13 @@
       "ignoreMe": "true"
     },
     "block": {
-      "id": "aoadpgz0mym1pipxutxuanur",
+      "id": "rjc08h0v0c9ou4ufhfj1ycrl",
       "name": "블록 이름"
     },
     "utterance": "발화 내용",
     "lang": null,
     "user": {
-      "id": "419065",
+      "id": "858657",
       "type": "accountId",
       "properties": {}
     }
@@ -25,16 +25,16 @@
     "name": "봇 이름"
   },
   "action": {
-    "name": "급식",
+    "name": "nn1zvzwks5",
     "clientExtra": null,
     "params": {
-      "date": "{\"value\":\"2019-11-15\",\"userTimeZone\":\"UTC+9\"}"
+      "date": "2019-11-15"
     },
-    "id": "5ab1cb5c9418c22b668807d4",
+    "id": "pj7zrozca24xzc39e0quh46a",
     "detailParams": {
       "date": {
-        "origin": "11/15",
-        "value": "{\"value\":\"2019-11-15\",\"userTimeZone\":\"UTC+9\"}",
+        "origin": "2019-11-15",
+        "value": "2019-11-15",
         "groupName": ""
       }
     }
