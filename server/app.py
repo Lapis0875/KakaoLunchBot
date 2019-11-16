@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    with open('index.html', 'rt', encoding='utf-8') as f:
+    with open('server/index.html', 'rt', encoding='utf-8') as f:
         content = f.read()
         f.close()
     return content
