@@ -32,23 +32,8 @@ def lunchmenu():
     menu_today: str = ','.join(menus)
 
     response = {'version': '1.0', 'template': {'outputs': [{'simpleText': {'text': menu_today}}]}}
-    print(
-        f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
-
-@app.route('/kakao-skill/<skillname>', methods=['POST', 'GET'])
-def kakao_skill(skillname):
-    if skillname == 'menu' and request.method == 'GET':
-        with open('kakao-skill/menu.html', 'rt', encoding='utf-8') as f:
-            content = f.read()
-            f.close()
-        return content
-    elif skillname == '' and request.method == 'GET':
-        with open('index.html', 'rt', encoding='utf-8') as f:
-            content = f.read()
-            f.close()
-        return content
-    else:
-        return '<h1>WRONG ACCESS</h1>'
+    print(f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
+    return response
 
 
 if __name__ == '__main__':
