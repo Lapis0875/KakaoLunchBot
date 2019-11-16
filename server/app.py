@@ -15,9 +15,11 @@ def index():
 
 @app.route('/lunchmenu', methods=['POST'])
 def lunchmenu():
-    r = request.json
-    date = r['action']['params']['date']
-    rd = json.loads(date.replace('/', ''))
+    f = open('server/requesttemplate.json', 'rt', encoding='UTF8')
+    data_str = f.read()
+    data = json.loads(data_str)
+    time = data['action']['params']['date']
+    rd = json.loads(time.replace('/', ''))
 
     # 학교 급식 api 메뉴 사이트에서 급식메뉴 json 파일을 크롤링해온다. 해당 사이트 프로젝트 : https://github.com/5d-jh/school-menu-api
     school_type = 'high'
@@ -30,9 +32,8 @@ def lunchmenu():
     menu_today: str = ','.join(menus)
 
     response = {'version': '1.0', 'template': {'outputs': [{'simpleText': {'text': menu_today}}]}}
-    print(f'{r["block"]["name"]} : {r["user"]["id"]} requested menu skill. return value : {response}')
-
-    return response
+    print(
+        f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
 
 @app.route('/kakao-skill/<skillname>', methods=['POST', 'GET'])
 def kakao_skill(skillname):

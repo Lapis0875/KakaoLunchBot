@@ -28,13 +28,13 @@
     "name": "급식",
     "clientExtra": null,
     "params": {
-      "date": "{\"value\":\"2018-03-20\",\"userTimeZone\":\"UTC+9\"}"
+      "date": "{\"value\":\"2019-11-15\",\"userTimeZone\":\"UTC+9\"}"
     },
     "id": "5ab1cb5c9418c22b668807d4",
     "detailParams": {
       "date": {
-        "origin": "11/04",
-        "value": "{\"value\":\"2018-03-20\",\"userTimeZone\":\"UTC+9\"}",
+        "origin": "11/15",
+        "value": "{\"value\":\"2019-11-15\",\"userTimeZone\":\"UTC+9\"}",
         "groupName": ""
       }
     }
