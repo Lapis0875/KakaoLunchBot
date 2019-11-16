@@ -1,1 +1,1 @@
-web: gunicorn yhkakaoskill:app
+web: gunicorn server:app
