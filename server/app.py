@@ -30,7 +30,7 @@ def lunchmenu():
         time = data['action']['params']['date']
     else:
         # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
-        response = {
+        response_body = {
             'version': lunchmenu_version,
             'template': {
                 'outputs': [
@@ -42,7 +42,9 @@ def lunchmenu():
                 ]
             }
         }
-        return json.dumps(response)
+        res = jsonify(response_body)
+        res.headers['Content-type'] = 'application/json; charset=utf-8'
+        return res
     print(f'time : {time}')
 
     # 학교 급식 api 메뉴 사이트에서 급식메뉴 json 파일을 크롤링해온다. 해당 사이트 프로젝트 : https://github.com/5d-jh/school-menu-api
@@ -58,7 +60,7 @@ def lunchmenu():
     menu_today: str = ','.join(menus)
     print(f'menu_today = {menu_today}')
     # 응답 설정.
-    response = {
+    response_body = {
         'version': lunchmenu_version,
         'template': {
             'outputs': [
@@ -70,8 +72,8 @@ def lunchmenu():
             ]
         }
     }
-    print(f'response = {response}')
-    res = flask.jsonify(response)
+    print(f'response = {response_body}')
+    res = jsonify(response_body)
     res.headers['Content-type'] = 'application/json; charset=utf-8'
     return res
 
