@@ -71,7 +71,9 @@ def lunchmenu():
         }
     }
     print(f'response = {response}')
-    return json.dumps(response)
+    res = flask.jsonify(response)
+    res.headers['Content-type'] = 'application/json; charset=utf-8'
+    return res
 
 
 if __name__ == '__main__':
