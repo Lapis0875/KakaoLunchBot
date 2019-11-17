@@ -1,6 +1,5 @@
-import json
 from urllib.request import urlopen
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 lunchmenu_version: str = "1.0"
@@ -42,7 +41,7 @@ def lunchmenu():
                 ]
             }
         }
-        return response
+        return jsonify(response)
     print(f'time : {time}')
 
     # 학교 급식 api 메뉴 사이트에서 급식메뉴 json 파일을 크롤링해온다. 해당 사이트 프로젝트 : https://github.com/5d-jh/school-menu-api
@@ -71,7 +70,7 @@ def lunchmenu():
         }
     }
     print(f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
-    return json.loads(response)
+    return jsonify(response)
 
 
 if __name__ == '__main__':
