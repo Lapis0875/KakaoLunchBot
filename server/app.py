@@ -21,8 +21,10 @@ def lunchmenu():
     requestdata = open('latest_request.json', 'wt')
     requestdata.write(str(data))
     requestdata.close()
-
-    time = data['action']['params']['date']
+    if data['bot']['name'] is '영훈고챗봇'
+        time = data['action']['params']['date']['value']
+    else:
+        time = data['action']['params']['date']
     print(f'time : {time}')
 
     # 학교 급식 api 메뉴 사이트에서 급식메뉴 json 파일을 크롤링해온다. 해당 사이트 프로젝트 : https://github.com/5d-jh/school-menu-api
