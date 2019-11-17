@@ -1,40 +1,52 @@
 {
   "intent": {
-    "id": "rjc08h0v0c9ou4ufhfj1ycrl",
-    "name": "블록 이름"
+    "id": "5d822bc892690d0001d7fb2f",
+    "name": "급식메뉴",
+    "extra": {
+      "reason": {
+        "code": 0,
+        "message": "OK"
+      }
+    }
   },
   "userRequest": {
     "timezone": "Asia/Seoul",
     "params": {
-      "ignoreMe": "true"
+      "surface": "Kakaotalk.plusfriend"
     },
     "block": {
-      "id": "rjc08h0v0c9ou4ufhfj1ycrl",
-      "name": "블록 이름"
+      "id": "5d822bc892690d0001d7fb2f",
+      "name": "급식메뉴"
     },
-    "utterance": "발화 내용",
-    "lang": null,
+    "utterance": "급식 메뉴 확인하기",
+    "lang": "kr",
     "user": {
-      "id": "858657",
-      "type": "accountId",
-      "properties": {}
+      "id": "008505e1917c619ea3249975ba9d99ae3be6981d3f958f953c6c5ef3b879032743",
+      "type": "botUserKey",
+      "properties": {
+        "botUserKey": "008505e1917c619ea3249975ba9d99ae3be6981d3f958f953c6c5ef3b879032743",
+        "plusfriendUserKey": "U9II4S5RQvkm",
+        "bot_user_key": "008505e1917c619ea3249975ba9d99ae3be6981d3f958f953c6c5ef3b879032743",
+        "plusfriend_user_key": "U9II4S5RQvkm"
+      }
     }
   },
+  "contexts": [],
   "bot": {
     "id": "5d822b40b617ea0001e175a2",
-    "name": "봇 이름"
+    "name": "영훈고챗봇"
   },
   "action": {
-    "name": "nn1zvzwks5",
-    "clientExtra": null,
+    "name": "launchmenu",
+    "clientExtra": {},
     "params": {
-      "date": "2019-11-15"
+      "date": "{\"userTimeZone\":\"UTC+9\",\"value\":\"2019-11-18\"}"
     },
-    "id": "pj7zrozca24xzc39e0quh46a",
+    "id": "5dcd7575ffa74800015ea1c4",
     "detailParams": {
       "date": {
-        "origin": "2019-11-15",
-        "value": "2019-11-15",
+        "origin": "2019-11-18",
+        "value": "{\"userTimeZone\":\"UTC+9\",\"value\":\"2019-11-18\"}",
         "groupName": ""
       }
     }
