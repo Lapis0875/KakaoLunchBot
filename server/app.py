@@ -15,7 +15,7 @@ def index():
 
 @app.route('/lunchmenu', methods=['POST'])
 def lunchmenu():
-    data = request.json
+    data = request.get_json()
     print(type(data))
     print(f'data = {data}')
     requestdata = open('latest_request.json', 'wt')
