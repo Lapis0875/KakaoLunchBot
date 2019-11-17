@@ -79,7 +79,7 @@ def lunchmenu():
     return response
 
 
-@app.route('/schedule', methods=-['POST'])
+@app.route('/schedule', methods=['POST'])
 def schedule():
     req = request.get_json()
     print(f'data = {req}')
