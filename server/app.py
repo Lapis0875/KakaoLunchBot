@@ -3,7 +3,7 @@ from urllib.request import urlopen
 from flask import Flask, request
 
 app = Flask(__name__)
-
+lunchmenu_version: str = "1.0"
 
 @app.route('/')
 def index():
@@ -19,7 +19,7 @@ def lunchmenu():
     print(type(data))
     print(f'data = {data}')
     requestdata = open('latest_request.json', 'wt')
-    requestdata.write(str(data))
+    requestdata.write(str(data).replace("'", '"'))
     requestdata.close()
     print(f'data["bot"]["name"] = {data["bot"]["name"]}')
     if data['bot']['name'] == '영훈고챗봇':
@@ -29,7 +29,19 @@ def lunchmenu():
         print('테스트 서버 응답으로 확인함.')
         time = data['action']['params']['date']
     else:
-        response = {'version': '1.0', 'template': {'outputs': [{'simpleText': {'text': '잘못된 요청입니다. 만약 일반 사용자가 이러한 문구를 보고 있다면, 개발자가 오류를 해결할 수 있도록 알려주세요. '}}]}}
+        # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
+        response = {
+            'version': lunchmenu_version,
+            'template': {
+                'outputs': [
+                    {
+                        'simpleText': {
+                            'text': '잘못된 요청입니다. 만약 일반 사용자가 이러한 문구를 보고 있다면, 개발자가 오류를 해결할 수 있도록 알려주세요. '
+                        }
+                    }
+                ]
+            }
+        }
         return response
     print(f'time : {time}')
 
@@ -45,10 +57,21 @@ def lunchmenu():
     menus = result["menu"][0]["lunch"]
     menu_today: str = ','.join(menus)
     print(f'menu_today = {menu_today}')
-
-    response = {'version': '1.0', 'template': {'outputs': [{'simpleText': {'text': menu_today}}]}}
+    # 응답 설정.
+    response = {
+        'version': lunchmenu_version,
+        'template': {
+            'outputs': [
+                {
+                    'simpleText': {
+                        'text': menu_today
+                    }
+                }
+            ]
+        }
+    }
     print(f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
-    return response
+    return json.loads(response)
 
 
 if __name__ == '__main__':
