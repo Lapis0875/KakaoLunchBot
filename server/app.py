@@ -15,9 +15,7 @@ def index():
 
 @app.route('/lunchmenu', methods=['POST'])
 def lunchmenu():
-    f = open('server/requesttemplate.json', 'rt', encoding='UTF8')
-    data_str = f.read()
-    data = json.loads(data_str)
+    data = request.json
     time = data['action']['detailParams']['date']['value']
     print(f'time : {time}')
 
