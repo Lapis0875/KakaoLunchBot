@@ -21,9 +21,9 @@ def lunchmenu():
     requestdata = open('latest_request.json', 'wt')
     requestdata.write(str(data))
     requestdata.close()
-    data['bot']['name']
+    print(f'data["bot"]["name"] = {data["bot"]["name"]}')
     if data['bot']['name'] is '영훈고챗봇':
-        time = data['action']['params']['date']['value']
+        time = data['action']['detailParams']['date']['origin']
     else:
         time = data['action']['params']['date']
     print(f'time : {time}')
