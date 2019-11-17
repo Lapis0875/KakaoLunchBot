@@ -16,7 +16,13 @@ def index():
 @app.route('/lunchmenu', methods=['POST'])
 def lunchmenu():
     data = request.json
-    time = data['action']['detailParams']['date']['value']
+    print(type(data))
+    print(f'data = {data}')
+    requestdata = open('latest_request.json', 'wt')
+    requestdata.write(data)
+    requestdata.close()
+
+    time = data['action']['detailParams']['date']['value']['value']
     print(f'time : {time}')
 
     # 학교 급식 api 메뉴 사이트에서 급식메뉴 json 파일을 크롤링해온다. 해당 사이트 프로젝트 : https://github.com/5d-jh/school-menu-api
