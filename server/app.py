@@ -70,7 +70,7 @@ def lunchmenu():
             ]
         }
     }
-    print(f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
+    print(f'response = {response}')
     return json.dumps(response)
 
 
