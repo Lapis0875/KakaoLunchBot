@@ -3,7 +3,6 @@ from urllib.request import urlopen
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-lunchmenu_version: str = "1.0"
 
 @app.route('/')
 def index():
@@ -16,11 +15,12 @@ def index():
 @app.route('/lunchmenu', methods=['POST'])
 def lunchmenu():
     data = request.get_json()
-    print(type(data))
     print(f'data = {data}')
+
     requestdata = open('latest_request.json', 'wt')
     requestdata.write(str(data).replace("'", '"'))
     requestdata.close()
+
     print(f'data["bot"]["name"] = {data["bot"]["name"]}')
     if data['bot']['name'] == '영훈고챗봇':
         print('유저가 챗봇을 통해 요청을 보냈음.')
@@ -31,7 +31,7 @@ def lunchmenu():
     else:
         # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
         response_body = {
-            'version': lunchmenu_version,
+            'version': '2.0',
             'template': {
                 'outputs': [
                     {
@@ -45,8 +45,8 @@ def lunchmenu():
         res = jsonify(response_body)
         res.headers['Content-type'] = 'application/json; charset=utf-8'
         return res
-    print(f'time : {time}')
 
+    print(f'time : {time}')
     # 학교 급식 api 메뉴 사이트에서 급식메뉴 json 파일을 크롤링해온다. 해당 사이트 프로젝트 : https://github.com/5d-jh/school-menu-api
     school_type = 'high'
     school_code = 'B100000505'
@@ -59,9 +59,10 @@ def lunchmenu():
     menus = result["menu"][0]["lunch"]
     menu_today: str = ','.join(menus)
     print(f'menu_today = {menu_today}')
+
     # 응답 설정.
     response_body = {
-        'version': lunchmenu_version,
+        'version': '2.0',
         'template': {
             'outputs': [
                 {
@@ -74,9 +75,9 @@ def lunchmenu():
     }
     print(f'response = {response_body}')
     res = jsonify(response_body)
-    res.headers['Content-type'] = 'application/json; charset=utf-8'
+    # res.headers['Content-type'] = 'application/json; charset=utf-8'
     return res
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5000)
