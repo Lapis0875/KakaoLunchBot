@@ -74,9 +74,54 @@ def lunchmenu():
         }
     }
     print(f'response = {response_body}')
-    res = jsonify(response_body)
+    response = jsonify(response_body)
     # res.headers['Content-type'] = 'application/json; charset=utf-8'
-    return res
+    return response
+
+
+@app.route('/schedule', method='POST')
+def schedule():
+    req = request.get_json()
+    print(f'data = {req}')
+
+    print(f'data["bot"]["name"] = {req["bot"]["name"]}')
+    if req['bot']['name'] == '영훈고챗봇':
+        print('유저가 챗봇을 통해 요청을 보냈음.')
+        time = req['action']['detailParams']['date']['origin']
+    elif req['bot']['name'] == '봇 이름':
+        print('테스트 서버 응답으로 확인함.')
+        time = req['action']['params']['date']
+    else:
+        # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
+        res = {
+            'version': '2.0',
+            'template': {
+                'outputs': [
+                    {
+                        'simpleText': {
+                            'text': '잘못된 요청입니다. 만약 일반 사용자가 이러한 문구를 보고 있다면, 개발자가 오류를 해결할 수 있도록 알려주세요. '
+                        }
+                    }
+                ]
+            }
+        }
+        return jsonify(res)
+
+    # 응답 설정.
+    res = {
+        'version': '2.0',
+        'template': {
+            'outputs': [
+                {
+                    'simpleImage': {
+
+                    }
+                }
+            ]
+        }
+    }
+    print(f'response = {res}')
+    return jsonify(res)
 
 
 if __name__ == '__main__':
