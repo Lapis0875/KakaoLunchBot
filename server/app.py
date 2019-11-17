@@ -19,7 +19,7 @@ def lunchmenu():
     print(type(data))
     print(f'data = {data}')
     requestdata = open('latest_request.json', 'wt')
-    requestdata.write(data)
+    requestdata.write(str(data))
     requestdata.close()
 
     time = data['action']['detailParams']['date']['value']['value']
