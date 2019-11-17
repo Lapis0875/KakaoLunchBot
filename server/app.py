@@ -33,10 +33,13 @@ def lunchmenu():
     school_code = 'B100000505'
     year, month, date = time.split('-')
     URL = f'https://schoolmenukr.ml/api/{school_type}/{school_code}?year={year}&month={month}&date={date}'
+    print(f'URL = {URL}')
 
-    result = json.loads(urlopen(URL).read().decode('utf-8'))
+    result = json.loads(urlopen(URL).read())
+    print(f'result = {result}')
     menus = result["menu"][0]["lunch"]
     menu_today: str = ','.join(menus)
+    print(f'menu_today = {menu_today}')
 
     response = {'version': '1.0', 'template': {'outputs': [{'simpleText': {'text': menu_today}}]}}
     print(f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
