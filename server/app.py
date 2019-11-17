@@ -23,8 +23,10 @@ def lunchmenu():
     requestdata.close()
     print(f'data["bot"]["name"] = {data["bot"]["name"]}')
     if data['bot']['name'] is '영훈고챗봇':
+        print('유저가 챗봇을 통해 요청을 보냈음.')
         time = data['action']['detailParams']['date']['origin']
     else:
+        print('테스트 서버 응답으로 확인함.')
         time = data['action']['params']['date']
     print(f'time : {time}')
 
