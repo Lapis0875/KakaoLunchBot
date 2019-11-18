@@ -62,7 +62,7 @@ def lunchmenu():
 
     if menu_today == '':
         import random
-        menu_today += random.choice(['오늘은 급식이 없어요!','일요일은 내가 짜빠게티 요리사! 오늘은 학교에서 급식을 제공하지 않는 날입니다!'])
+        menu_today += random.choice(['오늘은 급식이 없어요!','오늘은 학교에서 급식을 제공하지 않는 날입니다!'])
 
     # 응답 설정.
     response_body = {
