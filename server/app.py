@@ -4,8 +4,6 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-non_menu_txt: list = ['오늘은 급식이 없어요!','일요일은 내가 짜빠게티 요리사! 오늘은 학교에서 급식을 제공하지 않는 날입니다!']
-
 @app.route('/')
 def index():
     with open('server/index.html', 'rt', encoding='utf-8') as f:
@@ -64,7 +62,7 @@ def lunchmenu():
 
     if menu_today == '':
         import random
-        menu_today += non_menu_txt[random.sample(['오늘은 급식이 없어요!','일요일은 내가 짜빠게티 요리사! 오늘은 학교에서 급식을 제공하지 않는 날입니다!'],1)]
+        menu_today += random.sample(['오늘은 급식이 없어요!','일요일은 내가 짜빠게티 요리사! 오늘은 학교에서 급식을 제공하지 않는 날입니다!'],1)
 
     # 응답 설정.
     response_body = {
