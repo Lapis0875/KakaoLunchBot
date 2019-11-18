@@ -59,6 +59,8 @@ def lunchmenu():
     menus = result["menu"][0]["lunch"]
     menu_today: str = ','.join(menus)
     print(f'menu_today = {menu_today}')
+    if menu_today == '':
+        menu_today += '오늘은 급식이 없습니다.'
 
     # 응답 설정.
     response_body = {
