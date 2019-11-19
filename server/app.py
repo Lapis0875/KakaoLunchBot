@@ -90,11 +90,9 @@ def schedule():
 
     print(f'data["bot"]["name"] = {req["bot"]["name"]}')
     if req['bot']['name'] == '영훈고챗봇':
-        print('유저가 챗봇을 통해 요청을 보냈음.')
-        time = req['action']['detailParams']['date']['origin']
+        print('유저가 챗봇을 통해 요청을 보냈음')
     elif req['bot']['name'] == '봇 이름':
         print('테스트 서버 응답으로 확인함.')
-        time = req['action']['params']['date']
     else:
         # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
         res = {
