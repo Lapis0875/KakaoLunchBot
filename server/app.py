@@ -129,7 +129,7 @@ def schedule():
 
 
 @app.route('/yearschedule', methods=['POST'])
-def schedule():
+def year_schedule():
     req = request.get_json()
     print(f'req = {req}')
 
