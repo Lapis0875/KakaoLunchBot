@@ -113,15 +113,16 @@ def schedule():
 
     # 응답 설정.
     res = {
-        'version': '2.0',
-        'template': {
-            'outputs': [
-                {
-                    'simpleImage': {
-
+            'version': '2.0',
+            'template': {
+                'outputs': [
+                    {
+                        'simpleText': {
+                            'text': f'grade = {}, class = {} '
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     }
     print(f'response = {res}')
