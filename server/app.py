@@ -14,20 +14,20 @@ def index():
 
 @app.route('/lunchmenu', methods=['POST'])
 def lunchmenu():
-    data = request.get_json()
-    print(f'data = {data}')
+    req = request.get_json()
+    print(f'req = {req}')
 
     requestdata = open('latest_request.json', 'wt')
-    requestdata.write(str(data).replace("'", '"'))
+    requestdata.write(str(req).replace("'", '"'))
     requestdata.close()
 
-    print(f'data["bot"]["name"] = {data["bot"]["name"]}')
-    if data['bot']['name'] == '영훈고챗봇':
+    print(f'data["bot"]["name"] = {req["bot"]["name"]}')
+    if req['bot']['name'] == '영훈고챗봇':
         print('유저가 챗봇을 통해 요청을 보냈음.')
-        time = data['action']['detailParams']['date']['origin']
-    elif data['bot']['name'] == '봇 이름':
+        time = req['action']['detailParams']['date']['origin']
+    elif req['bot']['name'] == '봇 이름':
         print('테스트 서버 응답으로 확인함.')
-        time = data['action']['params']['date']
+        time = req['action']['params']['date']
     else:
         # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
         response_body = {
@@ -86,7 +86,7 @@ def lunchmenu():
 @app.route('/schedule', methods=['POST'])
 def schedule():
     req = request.get_json()
-    print(f'data = {req}')
+    print(f'req = {req}')
 
     print(f'data["bot"]["name"] = {req["bot"]["name"]}')
     if req['bot']['name'] == '영훈고챗봇':
@@ -124,6 +124,49 @@ def schedule():
             }
         }
     
+    print(f'response = {res}')
+    return jsonify(res)
+
+
+@app.route('/yearschedule', methods=['POST'])
+def schedule():
+    req = request.get_json()
+    print(f'req = {req}')
+
+    print(f'data["bot"]["name"] = {req["bot"]["name"]}')
+    if req['bot']['name'] == '영훈고챗봇':
+        print('유저가 챗봇을 통해 요청을 보냈음')
+    elif req['bot']['name'] == '봇 이름':
+        print('테스트 서버 응답으로 확인함.')
+    else:
+        # 잘못된 요청에 따른 응답 메세지 전송 후 스킬 종료.
+        res = {
+            'version': '2.0',
+            'template': {
+                'outputs': [
+                    {
+                        'simpleText': {
+                            'text': '잘못된 요청입니다. 만약 일반 사용자가 이러한 문구를 보고 있다면, 개발자가 오류를 해결할 수 있도록 알려주세요. '
+                        }
+                    }
+                ]
+            }
+        }
+        return jsonify(res)
+    # 응답 설정.
+    res = {
+        'version': '2.0',
+        'template': {
+            'outputs': [
+                {
+                    'simpleText': {
+                        'text': '학사일정 테스트'
+                    }
+                }
+            ]
+        }
+    }
+
     print(f'response = {res}')
     return jsonify(res)
 
