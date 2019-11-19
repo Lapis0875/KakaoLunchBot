@@ -110,7 +110,8 @@ def schedule():
             }
         }
         return jsonify(res)
-
+    grade = data['action']['params']['grade']
+    class = data['action']['params']['class']
     # 응답 설정.
     res = {
             'version': '2.0',
@@ -118,7 +119,7 @@ def schedule():
                 'outputs': [
                     {
                         'simpleText': {
-                            'text': f'grade = {}, class = {} '
+                            'text': f'grade = {grade}, class = {class} '
                         }
                     }
                 ]
