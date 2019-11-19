@@ -124,7 +124,7 @@ def schedule():
                 ]
             }
         }
-    }
+    
     print(f'response = {res}')
     return jsonify(res)
 
