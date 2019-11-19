@@ -110,8 +110,8 @@ def schedule():
             }
         }
         return jsonify(res)
-    grade = data['action']['params']['grade']
-    class = data['action']['params']['class']
+    grade = req['action']['params']['grade']
+    class = req['action']['params']['class']
     # 응답 설정.
     res = {
             'version': '2.0',
