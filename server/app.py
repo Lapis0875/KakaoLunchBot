@@ -117,7 +117,7 @@ def schedule():
                 'outputs': [
                     {
                         'simpleText': {
-                            'text': f'grade = {stu_grade}, class = {stu_class} '
+                            'text': f'grade = {stu_grade}, class = {stu_class}, Working in Progress. '
                         }
                     }
                 ]
