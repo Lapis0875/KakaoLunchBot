@@ -57,7 +57,7 @@ def lunchmenu():
     result = json.loads(urlopen(URL).read())
     print(f'result = {result}')
     menus = result["menu"][0]["lunch"]
-    menu_today: str = ','.join(menus)
+    menu_today: str = '\n'.join(menus)
     print(f'menu_today = {menu_today}')
 
     # 응답 설정.
