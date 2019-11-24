@@ -18,8 +18,10 @@ URL = f'https://schoolmenukr.ml/api/{school_type}/{school_code}?year={year}&mont
 result = json.loads(urlopen(URL).read())
 print(f'result = {result}')
 menus = result["menu"][0]["lunch"]
-menu_today: str = ','.join(menus)
+menu_today: str = ','.join(menus).translate(str.maketrans('', '', '.0123456789'))
+print(menu_today)
+
 
 response = {'version': '1.0', 'template': {'outputs': [{'simpleText': {'text': menu_today}}]}}
-print(f'{data["userRequest"]["block"]["name"]} : {data["userRequest"]["user"]["id"]} requested menu skill. return value : {response}')
+print(f'{data["userRequest"]["block"]["name"]} : return value : {response}')
 print(json.dumps(response))

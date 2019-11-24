@@ -40,13 +40,13 @@
     "name": "launchmenu",
     "clientExtra": {},
     "params": {
-      "date": "{\"userTimeZone\":\"UTC+9\",\"value\":\"2019-11-18\"}"
+      "date": "{\"userTimeZone\":\"UTC+9\",\"value\":\"2019-11-25\"}"
     },
     "id": "5dcd7575ffa74800015ea1c4",
     "detailParams": {
       "date": {
-        "origin": "2019-11-18",
-        "value": "{\"userTimeZone\":\"UTC+9\",\"value\":\"2019-11-18\"}",
+        "origin": "2019-11-25",
+        "value": "{\"userTimeZone\":\"UTC+9\",\"value\":\"2019-11-25\"}",
         "groupName": ""
       }
     }
