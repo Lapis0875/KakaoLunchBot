@@ -51,6 +51,7 @@ def lunchmenu():
     school_type = 'high'
     school_code = 'B100000505'
     year, month, date = time.split('-')
+    date = date.replace('0','')
     URL = f'https://schoolmenukr.ml/api/{school_type}/{school_code}?year={year}&month={month}&date={date}'
     print(f'URL = {URL}')
 
